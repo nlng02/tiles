@@ -24,8 +24,7 @@ def add_row_and_column(matrix):
 
     return matrix
 
-
-def find_pairs_of_vertices(n):
+def find_all_pairs_of_vertices(n):
     # Generate all combinations with replacement, not including the last vertex
     combinations = list(itertools.combinations_with_replacement(range(n-1), 2))
     
@@ -36,7 +35,7 @@ def find_pairs_of_vertices(n):
 
 def add_edges(matrix):
     
-    indices = find_pairs_of_vertices(matrix.shape[0])
+    indices = find_all_pairs_of_vertices(matrix.shape[0])
     matrices = []
 
     for index_pair in indices:    
@@ -49,7 +48,6 @@ def add_edges(matrix):
 
     return matrices
         
-
 def print_matrices(matrices):
     for i, matrix in enumerate(matrices):
         print(f"Matrix {i+1}:\n{matrix}\n")
